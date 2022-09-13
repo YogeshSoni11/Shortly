@@ -11,13 +11,13 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-try:
-    import pymysql
-except ImportError as err:
-    print(err)
-else:
-    pymysql.version_info=(1,3,13,'final', 0)
-    pymysql.install_as_MySQLdb()
+# try:
+#     import pymysql
+# except ImportError as err:
+#     print(err)
+# else:
+#     pymysql.version_info=(1,3,13,'final', 0)
+#     pymysql.install_as_MySQLdb()
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -84,15 +84,10 @@ WSGI_APPLICATION = 'Shortly.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'url_shortner_db',
-        'USER': 'root',
-        'PASSWORD': 'yogesh.11',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR , 'db.sqlite3')
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
